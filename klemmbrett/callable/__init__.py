@@ -20,7 +20,7 @@ def newline_to_comma(options, plugin):
             text = plugin.history.top
         except IndexError:
             return None
-        return text.strip().replace("\n", ",")
+        return ",".join(filter(None, (line.strip() for line in text.split("\n"))))
     return n2c
 
 
